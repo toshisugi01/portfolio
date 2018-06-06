@@ -27,6 +27,7 @@ const Wrapper = styled.div`
 /*
   background-image: linear-gradient(to bottom, #ff4b00, #ff4d74, #c56bee, #00b5ff, #00ac00, #ffba00, #ff8239);
 */
+  height: 100%;
   width: 100%;
 `;
 

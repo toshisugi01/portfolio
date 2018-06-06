@@ -43,7 +43,7 @@ const sdb = keyframes`
 `;
 const Scroll = styled.div`
   position: absolute;
-  margin-top: 140px;
+  margin-top: 70px;
   left: 50%;
   width: 24px;
   height: 24px;

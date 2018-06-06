@@ -24,6 +24,9 @@ injectGlobal`
 `;
 
 const Wrapper = styled.div`
+/*
+  background-image: linear-gradient(to bottom, #ff4b00, #ff4d74, #c56bee, #00b5ff, #00ac00, #ffba00, #ff8239);
+*/
   width: 100%;
 `;
 
@@ -44,18 +47,9 @@ class App extends React.Component {
   componentDidMount() {
     window.addEventListener('resize', this.setHeights.bind(this));
     this.setHeights();
-    var box = ReactDOM.findDOMNode(this.refs.router);
-    const s = document.createElement('script');
-    s.src = 'https://www.gstatic.com/firebasejs/5.0.4/firebase.js';
-    const s2 = document.createElement('script');
-    s2.type = 'text/javascript';
-    s.async = true;
-    s.innerHTML = 'firebase.initializeApp({apiKey: "AIzaSyDN_qjq04SenLCn6QV_-VLzpJdw3J_-yWQ",authDomain: "portfolio-6935e.firebaseapp.com",databaseURL: "https://portfolio-6935e.firebaseio.com",projectId: "portfolio-6935e",storageBucket: "portfolio-6935e.appspot.com",messagingSenderId: "385844611515"});';
-    box.appendChild(s);
-    box.appendChild(s2);
   }
   componentWillUnmount() {
-    window.removeEventListener('resize');
+    window.removeEventListener('resize', this.setHeights.bind(this));
   }
   setHeights() {
     if (this.resizeTimer !== false) {

@@ -55,10 +55,11 @@ const Nav = styled.nav`
   bottom: 0;
   width: 100%;
   height: 70px;
-  background-color: rgba(0,0,0,0.2);;
+  background-color: rgba(0,0,0,0.2);
   position: ${props => props.fixed ? 'fixed' : 'absolute'};
   top: ${props => props.fixed ? 0 : 'auto'};
   z-index: ${props => props.fixed ? 1 : 0};
+  transform: ${props => props.fixed ? 'translate3d(0, 0, 0)' : 'none'};
 `;
 const List = styled.li`
   position: relative;
@@ -87,20 +88,21 @@ export default class Navi extends React.Component {
   handleScroll() {
     var navHeight = window.innerHeight - 70;
     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    this.setState({fixed: (scrollTop > navHeight)});
+    var state = {fixed: scrollTop > navHeight};
     var home = this.props.heights.home;
     var about = home + this.props.heights.about - 1;
     var skills = about + this.props.heights.skills - 1;
     var contact = skills + this.props.heights.contact - 1;
     if (scrollTop < home) {
-      this.setState({position: Position.Home});
+      state.position = Position.Home;
     } else if (scrollTop >= home && scrollTop < about) {
-      this.setState({position: Position.About});
+      state.position = Position.About;
     } else if (scrollTop >= about && scrollTop < skills) {
-      this.setState({position: Position.Skills});
+      state.position = Position.Skills;
     } else if (scrollTop >= skills && scrollTop < contact) {
-      this.setState({position: Position.Contact});
+      state.position = Position.Contact;
     }
+    this.setState(state);
   }
 
   render () {

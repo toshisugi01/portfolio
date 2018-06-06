@@ -1,9 +1,5 @@
-# React-Static - Styled-Components Example
+# Toshiaki Sugiyama's Portfolio
 
-This example includes:
+This site uses:
+- React-static
 - Styled-Components
-- Image imports
-- File imports
-- Automatic Routing
-
-To get started, run `react-static create` and use the `styled-components` template.

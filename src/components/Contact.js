@@ -9,13 +9,12 @@ const Texts = [
 
 const ContactBox = styled.div`
   position: relative;
-  min-height: 100vh;
+  min-height: 50vh;
   width: 100%;
   top: 0;
   left: 0;
   display: inline-block;
   text-align: center;
-  background-color: white;
 `;
 const Name = styled.div`
   height: 50vh;
@@ -27,7 +26,7 @@ const Name = styled.div`
   -webkit-justify-content: center;
   justify-content: center;
   flex-direction: row;
-  background-color: #69acea;
+  background-color: rgba(255,105,0,0.4);
   color: white;
   font-size: 18px;
   font-family: fantasy, serif;
@@ -35,6 +34,8 @@ const Name = styled.div`
   font-size: 35px;
 `;
 const Sentence = styled.p`
+  padding-top: ${props => props.isFirst ? "50px" : 0};
+  margin-top: ${props => props.isFirst ? 0 : "16px"};
 `;
 const MailButton = styled.a`
   border-radius: 4px;
@@ -104,6 +105,10 @@ const Mail = styled.span`
     transition: all .3s;
   }
 `;
+const Box = styled.div`
+  background-color: white;
+  height: 50vh;
+`;
 
 export default class Contact extends React.Component {
   constructor(props) {
@@ -120,15 +125,17 @@ export default class Contact extends React.Component {
     return (
       <ContactBox id={this.props.id}>
         <Name>Contact Me</Name>
-        {Texts.map((text) => {
-          return <Sentence key={text}>{text}</Sentence>
-        })}
-        <MailButton
-          onMouseEnter={this.mouseHandler.bind(this, true)}
-          onMouseLeave={this.mouseHandler.bind(this, false)}
-          onClick={this.mailHandler}>
-          <Mail hover={this.state.hover} />{"Mail me"}
-        </MailButton>
+        <Box>
+          {Texts.map((text, idx) => {
+            return <Sentence key={text} isFirst={idx == 0}>{text}</Sentence>
+          })}
+          <MailButton
+            onMouseEnter={this.mouseHandler.bind(this, true)}
+            onMouseLeave={this.mouseHandler.bind(this, false)}
+            onClick={this.mailHandler}>
+            <Mail hover={this.state.hover} />{"Mail me"}
+          </MailButton>
+        </Box>
       </ContactBox>
     )
   }

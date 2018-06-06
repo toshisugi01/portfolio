@@ -43,7 +43,7 @@ const sdb = keyframes`
 `;
 const Scroll = styled.div`
   position: absolute;
-  margin-top: 190px;
+  margin-top: 140px;
   left: 50%;
   width: 24px;
   height: 24px;
@@ -63,12 +63,12 @@ export default class Home extends React.Component {
   }
   componentDidMount() {
     const isBrowser = typeof window !== 'undefined';
-    const bubbly = isBrowser ? require( 'bubbly-bg') : undefined;
+    const bubbly = isBrowser ? require('bubbly-bg') : undefined;
     var box = ReactDOM.findDOMNode(this.refs.homebox);
     const s = document.createElement('script');
     s.type = 'text/javascript';
     s.async = true;
-    s.innerHTML = "bubbly();";
+    s.innerHTML = 'bubbly();';
     box.appendChild(s);
   }
   render () {

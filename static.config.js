@@ -3,8 +3,9 @@ import React, { Component } from 'react'
 import { ServerStyleSheet } from 'styled-components'
 
 export default {
-  //siteRoot: 'https://mysite.com',
-  siteRoot: 'file:///Users/sugiyamatoshiaki/Documents/frusion/portfolio/dist',
+  //siteRoot: 'https://toshisugi01.github.io',
+  siteRoot: 'file:///Users/sugiyamatoshiaki/Documents/frusion/github/portfolio/dist',
+  //siteRoot: 'http://192.168.11.2:3000',
   getSiteData: () => ({
     title: 'React Static',
   }),

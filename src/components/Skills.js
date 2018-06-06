@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import styled from 'styled-components'
 //
+
 const SKILL_LIST = [{
   title: "Backend Skills",
   values: [
@@ -41,7 +42,6 @@ const SkillsBox = styled.div`
   left: 0;
   display: inline-block;
   text-align: center;
-  background-color: white;
 `;
 const Name = styled.div`
   height: 50vh;
@@ -53,7 +53,7 @@ const Name = styled.div`
   -webkit-justify-content: center;
   justify-content: center;
   flex-direction: row;
-  background-color: #69acea;
+  background-color: rgba(238,255,7,0.4);
   color: white;
   font-size: 18px;
   font-family: fantasy, serif;
@@ -64,26 +64,38 @@ const FlexBox = styled.div`
   margin: auto;
   display: -webkit-flex;
   display: flex;
-  -webkit-align-items: center;
-  align-items: center;
+  -webkit-align-items: start;
+  align-items: start;
   -webkit-flex-flow: row wrap;
   flex-flow: row wrap;
   -webkit-justify-content: center;
   justify-content: center;
+  background-color: white;
 `;
-const SkillsContents = FlexBox.extend`
-  max-width: 850px;
+const SkillsContents = styled.div`
+  min-width: 300px;
+  margin: 1em auto;
+  padding: 0.5em 1em;
+  border: solid 3px #95ccff;
+  border-radius: 8px;
+  background-color: white;
 `;
-const SkillTitle = styled.div`
-  min-width: 160px;
-  vertical-align: middle;
+const SkillTitle = styled.span`
+  top: -13px;
+  left: 10px;
+  padding: 0 9px;
+  line-height: 1;
+  background: #FFF;
+  color: #95ccff;
+  font-weight: bold;
 `;
 const SkillItems = styled.ul`
   list-style-type: none;
   min-width: 160px;
 `;
 const SkillItem = styled.li`
-  font-size: 12px;
+  margin-left: 30px;
+  font-size: 13px;
   text-align: left;
 `;
 
@@ -94,21 +106,21 @@ export default class Skills extends React.Component {
   render () {
     return (
       <SkillsBox id={this.props.id}>
-        <Name>My Skills / Experience</Name>
-        <SkillsContents>
+        <Name>My Skills</Name>
+        <FlexBox>
           {SKILL_LIST.map((item, idx) => {
             return (
-              <FlexBox key={item.title}>
+              <SkillsContents key={item.title}>
                 <SkillTitle>{item.title}</SkillTitle>
                 <SkillItems>
                   {item.values.map((skill, idx) => {
                     return (<SkillItem key={skill.name}>{skill.name}</SkillItem>)
                   })}
                 </SkillItems>
-              </FlexBox>
+              </SkillsContents>
             )
           })}
-        </SkillsContents>
+        </FlexBox>
       </SkillsBox>
     )
   }

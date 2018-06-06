@@ -11,10 +11,6 @@ const AboutBox = styled.div`
   left: 0;
   display: inline-block;
   text-align: center;
-  background-color: white;
-  /*
-  background-image: linear-gradient(to bottom, #1784C8, #00b5ff, #00ffff, #00AC00);
-  */
 `;
 const Name = styled.div`
   height: 50vh;
@@ -26,7 +22,7 @@ const Name = styled.div`
   -webkit-justify-content: center;
   justify-content: center;
   flex-direction: row;
-  background-color: #69acea;
+  background-color: rgba(200,0,0,0.4);
   color: white;
   font-size: 18px;
   font-family: fantasy, serif;
@@ -34,8 +30,8 @@ const Name = styled.div`
   font-size: 35px;
 `;
 const FlexBox = styled.div`
+  min-height: 50vh;
   margin: auto;
-  max-width: 850px;
   display: -webkit-flex;
   display: flex;
   -webkit-align-items: start;
@@ -43,6 +39,7 @@ const FlexBox = styled.div`
   -webkit-flex-direction: row;
   flex-direction: row;
   flex-wrap: wrap-reverse;
+  background-color: white;
 `;
 const Career = styled.ul`
   min-width: 300px;

@@ -21,6 +21,7 @@ const SKILL_LIST = [{
     {name: "Salesforce"},
     {name: "Jenkins"},
     {name: "Vagrant"},
+    {name: "Docker"},
   ]},{
   title: "Frontend Skills",
   values: [
@@ -30,6 +31,7 @@ const SKILL_LIST = [{
     {name: "Angular"},
     {name: "TypeScript"},
     {name: "React"},
+    {name: "Vue"},
     {name: "Cordova"},
   ]},
 ];
